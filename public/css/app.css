@@ -10542,3 +10542,9 @@ h1 {
   padding-left: 15px;
 }
 
+.movie-template {
+  display: inline-block;
+  margin-left: 40%;
+  width: 40%;
+}
+
