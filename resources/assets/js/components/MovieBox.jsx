@@ -1,21 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 
+class MovieBox extends Component {
+	render() {
+		const { movie } = this.props;
+		const { title, overview, poster_path } = movie;
+		const img_src = 'https://image.tmdb.org/t/p/w185' + poster_path;
 
-
-
-class MovieBox extends React.Component {
-  render(){
-    return <section key={this.props.movie.id}>
-      <div className="movie-template">
-        <div><p>rating</p></div>
-        <div><img height="200px" width="200px" alt="poster-img" src={this.props.movie.poster_src}></img></div>
-          <div><h3>{this.props.movie.title}</h3></div>
-          <div><p>{this.props.movie.overview.slice(0,150)}</p></div>
-
-
-      </div>
-    </section>
-  }
+		return (
+			<section>
+				<div className="template">
+					<div><p>rating</p></div>
+					<div><img height="200px" width="200px" alt="poster-img" src={img_src}></img></div>
+					<div><h3>{title}</h3></div>
+					<div><p>{overview.slice(0, 150)}</p></div>
+				</div>
+			</section>
+		)
+	}
 }
 
 export default MovieBox;
