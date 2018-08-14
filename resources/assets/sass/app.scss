@@ -88,11 +88,37 @@ h1{
    border-radius: 25%;
    color: white;
 }
- .ratings{
+ // .ratings{
+ //   padding: 2px 10;
+ //   width: 30px;
+ //   background-color: red;
+ //   border-radius: 30%;
+ //   text-align: center;
+ //   color: white;
+ // }
+ .good-rating{
    padding: 2px 10;
    width: 30px;
-   background-color: red;
+   background-color: green;
    border-radius: 30%;
    text-align: center;
    color: white;
  }
+
+.avg-rating{
+  padding: 2px 10;
+  width: 30px;
+  background-color: orange;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+}
+
+.bad-rating{
+  padding: 2px 10;
+  width: 30px;
+  background-color: red;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+}

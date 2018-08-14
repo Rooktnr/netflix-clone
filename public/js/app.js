@@ -60050,82 +60050,91 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var MovieBox = function (_Component) {
-	_inherits(MovieBox, _Component);
+  _inherits(MovieBox, _Component);
 
-	function MovieBox() {
-		_classCallCheck(this, MovieBox);
+  function MovieBox() {
+    _classCallCheck(this, MovieBox);
 
-		return _possibleConstructorReturn(this, (MovieBox.__proto__ || Object.getPrototypeOf(MovieBox)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (MovieBox.__proto__ || Object.getPrototypeOf(MovieBox)).apply(this, arguments));
+  }
 
-	_createClass(MovieBox, [{
-		key: "viewMovie",
-		value: function viewMovie() {
-			// console.log("View your movie");
-			// console.log(this.props.movie.title);
-			var viewUrl = "https://www.themoviedb.org/movie/" + this.props.movie.id;
-			window.location.href = viewUrl;
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var movie = this.props.movie;
-			var title = movie.title,
-			    overview = movie.overview,
-			    poster_path = movie.poster_path,
-			    vote_average = movie.vote_average;
+  _createClass(MovieBox, [{
+    key: "viewMovie",
+    value: function viewMovie() {
+      // console.log("View your movie");
+      // console.log(this.props.movie.title);
+      var viewUrl = "https://www.themoviedb.org/movie/" + this.props.movie.id;
+      window.location.href = viewUrl;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var movie = this.props.movie;
+      var title = movie.title,
+          overview = movie.overview,
+          poster_path = movie.poster_path,
+          vote_average = movie.vote_average;
 
-			var img_src = 'https://image.tmdb.org/t/p/w185' + poster_path;
+      var img_src = 'https://image.tmdb.org/t/p/w185' + poster_path;
+      var classes = [];
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				"section",
-				{ className: "wrapper" },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "template" },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"p",
-							{ className: "ratings" },
-							vote_average
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { height: "200px", width: "200px", alt: "img-unavailable", src: img_src })
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"h3",
-							null,
-							title
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"p",
-							null,
-							overview.slice(0, 150)
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"button",
-						{ className: "view-btn", onClick: this.viewMovie.bind(this) },
-						"View"
-					)
-				)
-			);
-		}
-	}]);
+      if (vote_average < 10 && vote_average >= 7) {
+        classes.push('good-rating');
+      } else if (vote_average > 3 && vote_average <= 6.9) {
+        classes.push('avg-rating');
+      } else if (vote_average < 3) {
+        classes.push('bad-rating');
+      }
 
-	return MovieBox;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "section",
+        { className: "wrapper" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "template" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "p",
+              { className: classes.join(' ') },
+              vote_average
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { height: "200px", width: "200px", alt: "img-unavailable", src: img_src })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "h3",
+              null,
+              title
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "p",
+              null,
+              overview.slice(0, 150)
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "button",
+            { className: "view-btn", onClick: this.viewMovie.bind(this) },
+            "View"
+          )
+        )
+      );
+    }
+  }]);
+
+  return MovieBox;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (MovieBox);

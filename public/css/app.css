@@ -10562,7 +10562,25 @@ h1 {
   color: white;
 }
 
-.ratings {
+.good-rating {
+  padding: 2px 10;
+  width: 30px;
+  background-color: green;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+}
+
+.avg-rating {
+  padding: 2px 10;
+  width: 30px;
+  background-color: orange;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+}
+
+.bad-rating {
   padding: 2px 10;
   width: 30px;
   background-color: red;
