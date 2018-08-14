@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieBox from "./MovieBox.jsx"
 import axios from 'axios';
-import {MOVIE_API, API_KEY} from '../utils';
+import {MOVIE_API, API_KEY, Term} from '../utils';
 
 export default class Example extends Component {
 
@@ -12,14 +12,15 @@ export default class Example extends Component {
 			movies: []
 		}
 
-		this.performSearch = () => {
+		this.performSearch = (searchTerm) => {
 			let urlString = "/search/movie";
-				
-			axios.get(MOVIE_API + urlString, {
+
+
+			axios.get(MOVIE_API + urlString,{
 				params: {
 					api_key: API_KEY,
 					language: 'en-US',
-					query: 'avengers',
+					query: searchTerm,
 					include_adult: false
 				}
 			})
@@ -39,6 +40,14 @@ export default class Example extends Component {
 		this.performSearch();
 	}
 
+
+  searchChangeHandler(event){
+    console.log(event.target.value)
+    const searchTerm = event.target.value
+    this.performSearch(searchTerm)
+    console.log(searchTerm)
+  }
+
 	render() {
 		const { movies } = this.state;
 		return (
@@ -57,7 +66,7 @@ export default class Example extends Component {
 							</td>
 							<td>
 								<span><i className="fa fa-search"></i></span>
-								<input className="search-Bar" placeholder="enter your search ..."></input>
+								<input onChange={this.searchChangeHandler.bind(this)} className="search-Bar" placeholder="enter your search ..."></input>
 							</td>
 							<td width="30px"></td>
 						</tr>

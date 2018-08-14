@@ -10542,9 +10542,32 @@ h1 {
   padding-left: 15px;
 }
 
-.movie-template {
+.template {
   display: inline-block;
-  margin-left: 40%;
-  width: 40%;
+  float: left;
+  margin-left: 100px;
+  margin-right: 70px;
+  margin-top: 50px;
+  margin-bottom: 135px;
+  direction: ltr;
+  height: 300px;
+  width: 300px;
+  color: #C4C1C0;
+}
+
+.view-btn {
+  padding: 2px 10px;
+  background-color: green;
+  border-radius: 25%;
+  color: white;
+}
+
+.ratings {
+  padding: 2px 10;
+  width: 30px;
+  background-color: red;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
 }
 
